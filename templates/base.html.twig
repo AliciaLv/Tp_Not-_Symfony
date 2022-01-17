@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+             <script type="text/javascript">
+                window.addEventListener("DOMContentLoaded", (event) => {
+                    let add = document.querySelector("#add");
+                    console.log(add);
+                    add.addEventListener("click", () => {
+                        
+                        let id = document.querySelector("h3").getAttribute("data-id");
+                        let url = `/cart/add/${id}`;
+                            add.disabled = true;
+                        fetch(url)
+                            .then(res => res.json())
+                            .then(res => {
+                                add.disabled = false;
+                            });
+                    });
+            });
+            
+            </script>
+        {% endblock %}
+    </head>
+    {% include "partials/_flash.html.twig" %}
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
