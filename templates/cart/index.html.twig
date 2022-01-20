@@ -12,37 +12,45 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Panier :</h1>
+<div class="container">
+    <h1 class="mb-5">Cart :</h1>
 
-    <table>
-        <tr>
-            <th>Nom</th>
-            <th>Prix</th>
-            <th>Quantité</th>
-        </tr>
-        {% for product in products %}
-            <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.price}}€</td>
-                <td>{{quantity[product.id]}}</td>
-                <td>
-                    <form action="/cart/delete/{{product.id}}">
-                        <input type="submit" value="Delete">
-                    </form>
+    <table class="table mt-5">
+        <thead>
+            <tr scope="row">
+                <th scope="col">Nom</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Quantité</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr scope="row">
+                    <td scope="col">{{product.name}}</td>
+                    <td scope="col">{{product.price}}€</td>
+                    <td scope="col">{{quantity[product.id]}}</td>
+                    <td scope="col">
+                        <form action="/cart/delete/{{product.id}}">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                <tr>
+            {% endfor %}
+            <tr scope="row">
+                <td scope="col">
+                    Total of cart
                 </td>
-            <tr>
-        {% endfor %}
-        <tr>
-            <td colspan="3">
-                {{total}}
-            </td>
-        </tr>
+                <td colspan="3" scope="col">
+                    {{total}}€
+                </td>
+            </tr>
+        </tbody>
     </table>
     {{ form_start(commandForm) }}
         {{ form_row(commandForm.email) }}
-        <button type="submit">
-            Validate command
+        <button class="btn btn-primary" type="submit">
+            Validate order
         </button>
     {{ form_end(commandForm) }}
 </div>

@@ -8,12 +8,12 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="produit">
-        <h3 data-id="{{ product.id }}">{{product.name}}</h3>
+<div class="container">
+        <h3 class="mb-5" data-id="{{ product.id }}">{{product.name}}</h3>
         <p>{{product.description}}</p>
-        <p>Créée le {{product.createdAt|date('d/m/Y')}}</p>
-        <a href="/product">Retour à la page d'accueil..</a>
-        <button id="add">Ajouter au panier</button>
+        <p class="mb-5">Créée le {{product.createdAt|date('d/m/Y')}}</p>
+        <a href="/product">Retour à la page d'accueil..</a><br>
+        <button class="btn btn-primary" id="add">Ajouter au panier</button>
 </div>
 
 

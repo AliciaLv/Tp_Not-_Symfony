@@ -8,11 +8,13 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="Product">
+<div class="container">
+    <h1 class="mb-5">Produts</h1>
     {% for product in products %}
         <h3><a href="/product/{{product.id}}">{{ product.name }}</a></h3>
         <p>{{product.description|slice(0, 300)}} <a href="/product/{{product.id}}">... voir plus</a></p>
         <p>Créée le {{product.createdAt|date('d/m/Y')}}</p>
+        <hr>
     {% endfor %}
 </div>
 

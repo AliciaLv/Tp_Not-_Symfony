@@ -8,22 +8,26 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div>
-     <h1>Orders :</h1>
+<div class="container">
+     <h1 class="mb-5">Orders :</h1>
 
-    <table>
-        <tr>
-            <th>Number</th>
-            <th>Email buyer</th>
-            <th>Détails</th>
-        </tr>
-        {% for command in commands %}
-            <tr>
-                <td>{{command.id}}</td>
-                <td>{{command.email}}</td>
-                <td><a href="/command/{{command.id}}">Détails..</a></td>
-            <tr>
-        {% endfor %}
+    <table class="table">
+        <thead>
+            <tr scope="row">
+                <th scope="col">Number</th>
+                <th scope="col">Email buyer</th>
+                <th scope="col">Détails</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for command in commands %}
+                <tr scope="row">
+                    <td scope="col">{{command.id}}</td>
+                    <td scope="col">{{command.email}}</td>
+                    <td scope="col"><a href="/command/{{command.id}}">Détails..</a></td>
+                <tr>
+            {% endfor %}
+        <tbody>
     </table>
 </div>
 {% endblock %}
