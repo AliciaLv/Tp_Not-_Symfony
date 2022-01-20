@@ -8,25 +8,31 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="produit">
-        <p>Number : {{command.id}}</p>
-        </p>Email Buyer : {{command.email}}<br><br>
-        <table>
-            <tr>
-                <th>Product name</th>
-                <th>Product Price </th>
-                <th>Détails</th>
-            </tr>
-
-            {% for product in products %}
-                <tr>
-                    <td>{{product.name}}</td>
-                    <td>{{product.price}}</td>
-                    <td><a href="/product/{{product.id}}">Détails..</a></td>
+<div class="container">
+        <p class="mb-5">Number : {{command.id}}
+        <br/>Email Buyer : {{command.email}}</p>
+        <table class="table">
+            <thead>
+                <tr scope="row">
+                    <th scope="col">Product name</th>
+                    <th scope="col">Product Price </th>
+                    <th scope="col">Détails</th>
                 </tr>
-            {% endfor %}
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr scope="row">
+                        <td scope="col">{{product.name}}</td>
+                        <td scope="col">{{product.price}}</td>
+                        <td scope="col"><a href="/product/{{product.id}}">Détails..</a></td>
+                    </tr>
+                {% endfor %}
+                <tr scope="row">
+                    <td scope="col">Total</td>
+                    <td scope="col" colspan="2">{{total}}€</td>
+                </tr>
+            </tbody>
         </table>
-        <p>Total : {{total}}€</p>
 </div>
 
 

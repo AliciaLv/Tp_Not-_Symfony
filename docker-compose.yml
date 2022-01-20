@@ -11,7 +11,7 @@ services:
     ports:
       - 7780:8000
     volumes:
-      - ./:/app
+      - ./:/app:delegated
     networks:
       - pont
 
@@ -20,7 +20,7 @@ services:
     image: mysql:5.7
     restart: "no" # unless-stopped
     volumes:
-      - data_mysql_sy:/var/lib/mysql
+      - data_mysql_sy:/var/lib/mysql:delegated
     env_file:
       - .env
     environment:

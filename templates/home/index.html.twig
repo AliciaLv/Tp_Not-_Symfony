@@ -9,32 +9,37 @@
 </style>
 
 <div class="container">
+    <h1 class="mb-5">HOME</h1>
     <div class="row">
         <div class="col-6">
-            <h5>Less expensive products :</h5>
-            <table>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prix</th>
-                </tr>
-                {% for product in lessExpensiveProduct %}
-                    <tr>
-                        <td>{{product.name}}</td>
-                        <td>{{product.price}}€</td>
-                    <tr>
-                {% endfor %}
+            <h5 class="mb-3">Less expensive products :</h5>
+            <table class="table">
+                <thead>
+                    <tr scope="row">
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in lessExpensiveProduct %}
+                        <tr scope="row">
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}}€</td>
+                        <tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
 
         <div class="col-6">
-            <h5>most recent products :</h5>
-            <table>
-                <tr>
-                    <th>Nom</th>
+            <h5 class="mb-3">most recent products :</h5>
+            <table class="table">
+                <tr  scope="row">
+                    <th>Name</th>
                     <th>Created at</th>
                 </tr>
                 {% for product in mostRecentProduct %}
-                    <tr>
+                    <tr  scope="row">
                         <td>{{product.name}}</td>
                         <td>{{product.createdAt|date('d/m/Y')}}</td>
                     <tr>
